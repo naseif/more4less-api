@@ -13,8 +13,18 @@ npm run start
 
 ## Endpoints
 
+Each endpoint must have a **query parameter** when sending the GET Request
+
 -   /api/v1/amazon
 -   /api/v1/ebay
 -   /api/v1/saturn
 -   /api/v1/mediamarkt
 -   /api/v1/all
+
+## Example
+
+To search for `DDR4 RAM 16GB` on all mentioned online shops above, simply do:
+
+```
+http://localhost:8080/api/v1/all?query=DDR4 RAM 16GB
+```
