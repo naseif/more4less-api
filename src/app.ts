@@ -4,6 +4,8 @@ import {
     EbayPriceSearchEngine,
     MediaMarktPriceSearchEngine,
     SaturnPriceSearchEngine,
+    OttoPriceSearchEngine,
+    ProshopPriceSearchEngine,
     SearchEngineList
 } from 'more4less';
 
@@ -64,6 +66,36 @@ api.AddEndPoint('/mediamarkt', 'get', async (req, res) => {
 api.AddEndPoint('/saturn', 'get', async (req, res) => {
     const { query } = req.query;
     const searchForQuery = await new SaturnPriceSearchEngine().search(query);
+
+    try {
+        res.status(200).json({
+            status: 'ok',
+            result: searchForQuery.length,
+            data: searchForQuery
+        });
+    } catch (error: any) {
+        res.status(500).json({ status: 'fail', error: error.message });
+    }
+});
+
+api.AddEndPoint('/proshop', 'get', async (req, res) => {
+    const { query } = req.query;
+    const searchForQuery = await new ProshopPriceSearchEngine().search(query);
+
+    try {
+        res.status(200).json({
+            status: 'ok',
+            result: searchForQuery.length,
+            data: searchForQuery
+        });
+    } catch (error: any) {
+        res.status(500).json({ status: 'fail', error: error.message });
+    }
+});
+
+api.AddEndPoint('/otto', 'get', async (req, res) => {
+    const { query } = req.query;
+    const searchForQuery = await new OttoPriceSearchEngine().search(query);
 
     try {
         res.status(200).json({
