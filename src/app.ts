@@ -114,7 +114,9 @@ api.AddEndPoint('/all', 'get', async (req, res) => {
         new AmazonPriceSearchEngine2(),
         new EbayPriceSearchEngine(),
         new MediaMarktPriceSearchEngine(),
-        new SaturnPriceSearchEngine()
+        new SaturnPriceSearchEngine(),
+        new ProshopPriceSearchEngine(),
+        new OttoPriceSearchEngine()
     ]);
 
     const searchForQuery = await searchEngines.search(query);
