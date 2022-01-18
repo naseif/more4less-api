@@ -1,30 +1,30 @@
 {
-  "name": "more4less-api",
-  "version": "1.0.0",
-  "description": "A RESTful API for @naseif/more4less",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/naseif/more4less-api.git"
-  },
-  "author": "naseif",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/naseif/more4less-api/issues"
-  },
-  "homepage": "https://github.com/naseif/more4less-api#readme",
-  "devDependencies": {
-    "@types/node": "^17.0.9",
-    "prettier": "^2.5.1",
-    "tslint": "^6.1.3",
-    "typedoc": "^0.22.10",
-    "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "api-tools-ts": "^1.3.5",
-    "more4less": "^1.2.0"
-  }
+    "name": "more4less-api",
+    "version": "1.0.0",
+    "description": "A RESTful API for @naseif/more4less",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "./build.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/naseif/more4less-api.git"
+    },
+    "author": "naseif",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/naseif/more4less-api/issues"
+    },
+    "homepage": "https://github.com/naseif/more4less-api#readme",
+    "devDependencies": {
+        "@types/node": "^17.0.9",
+        "prettier": "^2.5.1",
+        "tslint": "^6.1.3",
+        "typedoc": "^0.22.10",
+        "typescript": "^4.5.4"
+    },
+    "dependencies": {
+        "api-tools-ts": "^1.3.5",
+        "more4less": "^1.3.0"
+    }
 }
