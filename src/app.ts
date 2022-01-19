@@ -8,7 +8,8 @@ import {
     ProshopPriceSearchEngine,
     SearchEngineList,
     AlternatePriceSearchEngine,
-    KauflandPriceSearchEngine
+    KauflandPriceSearchEngine,
+    ClevertronicPriceSearchEngine
 } from 'more4less';
 
 const api = new APIController('/api/v1');
@@ -140,6 +141,21 @@ api.AddEndPoint('/kaufland', 'get', async (req, res) => {
     }
 });
 
+api.AddEndPoint('/clevertronic', 'get', async (req, res) => {
+    const { query } = req.query;
+    const searchForQuery = await new ClevertronicPriceSearchEngine().search(query);
+
+    try {
+        res.status(200).json({
+            status: 'ok',
+            result: searchForQuery.length,
+            data: searchForQuery
+        });
+    } catch (error: any) {
+        res.status(500).json({ status: 'fail', error: error.message });
+    }
+});
+
 api.AddEndPoint('/all', 'get', async (req, res) => {
     const { query } = req.query;
     const searchEngines = new SearchEngineList([
@@ -150,7 +166,8 @@ api.AddEndPoint('/all', 'get', async (req, res) => {
         new ProshopPriceSearchEngine(),
         new OttoPriceSearchEngine(),
         new AlternatePriceSearchEngine(),
-        new KauflandPriceSearchEngine()
+        new KauflandPriceSearchEngine(),
+        new ClevertronicPriceSearchEngine()
     ]);
 
     const searchForQuery = await searchEngines.search(query);
