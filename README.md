@@ -22,6 +22,7 @@ Each endpoint must have a **query parameter** when sending the GET Request
 -   /api/v1/otto
 -   /api/v1/proshop
 -   /api/v1/alternate
+-   /api/v1/kaufland
 -   /api/v1/all
 
 ## Example
