@@ -24,6 +24,8 @@ Each endpoint must have a **query parameter** when sending the GET Request
 -   /api/v1/alternate
 -   /api/v1/kaufland
 -   /api/v1/clevertronic
+-   /api/v1/cyberport
+-   /api/v1/medimax
 -   /api/v1/all
 
 ## Example

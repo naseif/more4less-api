@@ -1,5 +1,5 @@
 import { APIController } from 'api-tools-ts';
-import { SearchEngine } from 'more4less';
+import { SearchEngine, JSONOutput } from 'more4less';
 
 const api = new APIController('/api/v1');
 
@@ -133,6 +133,36 @@ api.AddEndPoint('/kaufland', 'get', async (req, res) => {
 api.AddEndPoint('/clevertronic', 'get', async (req, res) => {
     const { query } = req.query;
     const searchForQuery = await new SearchEngine('Clevertronic').search(query);
+
+    try {
+        res.status(200).json({
+            status: 'ok',
+            result: searchForQuery.length,
+            data: searchForQuery
+        });
+    } catch (error: any) {
+        res.status(500).json({ status: 'fail', error: error.message });
+    }
+});
+
+api.AddEndPoint('/cyberport', 'get', async (req, res) => {
+    const { query } = req.query;
+    const searchForQuery = await new SearchEngine('Cyberport').search(query);
+
+    try {
+        res.status(200).json({
+            status: 'ok',
+            result: searchForQuery.length,
+            data: searchForQuery
+        });
+    } catch (error: any) {
+        res.status(500).json({ status: 'fail', error: error.message });
+    }
+});
+
+api.AddEndPoint('/medimax', 'get', async (req, res) => {
+    const { query } = req.query;
+    const searchForQuery = await new SearchEngine('MediMax').search(query);
 
     try {
         res.status(200).json({
