@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "api-tools-ts": "^1.3.5",
-        "more4less": "^1.6.0"
+        "more4less": "^1.6.3"
     }
 }

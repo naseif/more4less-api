@@ -1,16 +1,5 @@
 import { APIController } from 'api-tools-ts';
-import {
-    AmazonPriceSearchEngine2,
-    EbayPriceSearchEngine,
-    MediaMarktPriceSearchEngine,
-    SaturnPriceSearchEngine,
-    OttoPriceSearchEngine,
-    ProshopPriceSearchEngine,
-    SearchEngineList,
-    AlternatePriceSearchEngine,
-    KauflandPriceSearchEngine,
-    ClevertronicPriceSearchEngine
-} from 'more4less';
+import { SearchEngine } from 'more4less';
 
 const api = new APIController('/api/v1');
 
@@ -23,7 +12,7 @@ api.AddEndPoint('/', 'get', (req, res) => {
 
 api.AddEndPoint('/amazon', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new AmazonPriceSearchEngine2().search(query);
+    const searchForQuery = await new SearchEngine('Amazon').search(query);
 
     try {
         res.status(200).json({
@@ -38,7 +27,7 @@ api.AddEndPoint('/amazon', 'get', async (req, res) => {
 
 api.AddEndPoint('/ebay', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new EbayPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Ebay').search(query);
 
     try {
         res.status(200).json({
@@ -53,7 +42,7 @@ api.AddEndPoint('/ebay', 'get', async (req, res) => {
 
 api.AddEndPoint('/mediamarkt', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new MediaMarktPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('MediaMarkt').search(query);
 
     try {
         res.status(200).json({
@@ -68,7 +57,7 @@ api.AddEndPoint('/mediamarkt', 'get', async (req, res) => {
 
 api.AddEndPoint('/saturn', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new SaturnPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Saturn').search(query);
 
     try {
         res.status(200).json({
@@ -83,7 +72,7 @@ api.AddEndPoint('/saturn', 'get', async (req, res) => {
 
 api.AddEndPoint('/proshop', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new ProshopPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Proshop').search(query);
 
     try {
         res.status(200).json({
@@ -98,7 +87,7 @@ api.AddEndPoint('/proshop', 'get', async (req, res) => {
 
 api.AddEndPoint('/otto', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new OttoPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Otto').search(query);
 
     try {
         res.status(200).json({
@@ -113,7 +102,7 @@ api.AddEndPoint('/otto', 'get', async (req, res) => {
 
 api.AddEndPoint('/alternate', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new AlternatePriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Alternate').search(query);
 
     try {
         res.status(200).json({
@@ -128,7 +117,7 @@ api.AddEndPoint('/alternate', 'get', async (req, res) => {
 
 api.AddEndPoint('/kaufland', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new KauflandPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Kaufland').search(query);
 
     try {
         res.status(200).json({
@@ -143,7 +132,7 @@ api.AddEndPoint('/kaufland', 'get', async (req, res) => {
 
 api.AddEndPoint('/clevertronic', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchForQuery = await new ClevertronicPriceSearchEngine().search(query);
+    const searchForQuery = await new SearchEngine('Clevertronic').search(query);
 
     try {
         res.status(200).json({
@@ -158,19 +147,7 @@ api.AddEndPoint('/clevertronic', 'get', async (req, res) => {
 
 api.AddEndPoint('/all', 'get', async (req, res) => {
     const { query } = req.query;
-    const searchEngines = new SearchEngineList([
-        new AmazonPriceSearchEngine2(),
-        new EbayPriceSearchEngine(),
-        new MediaMarktPriceSearchEngine(),
-        new SaturnPriceSearchEngine(),
-        new ProshopPriceSearchEngine(),
-        new OttoPriceSearchEngine(),
-        new AlternatePriceSearchEngine(),
-        new KauflandPriceSearchEngine(),
-        new ClevertronicPriceSearchEngine()
-    ]);
-
-    const searchForQuery = await searchEngines.search(query);
+    const searchForQuery = await new SearchEngine('All').search(query);
 
     try {
         res.status(200).json({
