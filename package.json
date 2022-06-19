@@ -4,7 +4,8 @@
     "description": "A RESTful API for @naseif/more4less",
     "main": "dist/index.js",
     "scripts": {
-        "start": "./build.sh"
+        "start": "./build.sh",
+        "build": "tsc && node dist/index.js"
     },
     "repository": {
         "type": "git",
